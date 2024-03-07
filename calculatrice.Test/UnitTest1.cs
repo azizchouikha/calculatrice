@@ -56,7 +56,7 @@ namespace calculatrice.Test
         [Theory]
         [InlineData("1,1,1", 3)]
         [InlineData("1, 1, 1", 3)]
-        [InlineData("1,1, 1, 1", 3)]
+        [InlineData("1,1, 1, 1", 4)]
         [InlineData(" 1, 1,1 ", 3)]
         public void Add_ToleratesSpacesAnywhere(string input, int expectedSum)
         {
