@@ -53,5 +53,17 @@ namespace calculatrice.Test
             var result = calculator.Add(input);
             Assert.Equal(expectedSum, result); 
         }
+        [Theory]
+        [InlineData("1,1,1", 3)]
+        [InlineData("1, 1, 1", 3)]
+        [InlineData("1,1, 1, 1", 3)]
+        [InlineData(" 1, 1,1 ", 3)]
+        public void Add_ToleratesSpacesAnywhere(string input, int expectedSum)
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add(input);
+
+            Assert.Equal(expectedSum, result); 
+        }
     }
 }
