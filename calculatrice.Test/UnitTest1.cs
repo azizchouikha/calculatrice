@@ -43,5 +43,15 @@ namespace calculatrice.Test
             
             Assert.Throws<FormatException>(() => calculator.Add(input));
         }
+        [Theory]
+        [InlineData("1,2,3", 6)]
+        [InlineData("4,5,6", 15)]
+        [InlineData("7,8,9,10", 34)]
+        public void Add_ShouldFail_WhenMoreThanTwoNumbersAreProvided(string input, int expectedSum)
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add(input);
+            Assert.Equal(expectedSum, result); 
+        }
     }
 }
