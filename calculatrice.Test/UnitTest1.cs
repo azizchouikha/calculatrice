@@ -65,5 +65,15 @@ namespace calculatrice.Test
 
             Assert.Equal(expectedSum, result); 
         }
+        [Fact]
+        public void Add_ThrowsException_WhenNegativeNumbersAreIncluded()
+        {
+            var calculator = new StringCalculator();
+            var input = "5,-3,8,-2";
+
+            var exception = Assert.Throws<ArgumentException>(() => calculator.Add(input));
+            Assert.Contains("-3", exception.Message);
+            Assert.Contains("-2", exception.Message);
+        }
     }
 }
